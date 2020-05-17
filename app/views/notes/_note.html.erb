@@ -1,0 +1,53 @@
+<div class="modal-dialog modal-dialog-scrollable">
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">[id:<%= note.id %>]<%= note.note %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= note.comment_id%></h6>
+    <p class="card-text"><%= note.detail %></p>
+    <a href="#" class="card-link"><%= link_to 'Edit', edit_article_comment_note_path(comment.article, comment, note) %></a>
+    <a href="#" class="card-link"><%= button_to 'Destroy', [comment.article, comment, note], method: :delete, data: { confirm: 'Are you sure?' }  %></a>
+  </div>
+</div>
+
+</div>
+
+
+    <%# <p>
+    　　[id:<%= note.id %>]
+    　　 <strong>note:</strong>
+    　　 <%= note.note %>
+    </p> %>
+    
+    <p>
+    　　 <strong>detail:</strong>
+    　　 <%= note.detail %>
+    </p>
+
+    <p>
+      　　<strong>nurl:</strong>
+      　　<%= note.nurl%>
+    </p>
+
+    <p>
+      　　<strong>status:</strong>
+      　　<%= note.status%>
+    </p>
+
+    <p>
+      　　<strong>report:</strong>
+      　　<%= note.report%>
+    </p>
+
+
+      <%= link_to 'Edit', edit_article_comment_note_path(comment.article, comment, note) %>
+      <%= button_to 'Destroy', [comment.article, comment, note], method: :delete, data: { confirm: 'Are you sure?' }  %>
+      <%= link_to '＋', new_article_comment_note_path(comment.article, comment) %>
+
+      t.string :note
+      t.text :detail
+      t.text :report
+      t.text :nurl
+      t.integer :status 
+      t.references :comment, null: false, foreign_key: true
+      t.references :article, null: false, foreign_key: true

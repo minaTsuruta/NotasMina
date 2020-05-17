@@ -1,0 +1,40 @@
+create
+<%= form_with model: @cate, local: true do |f| %>
+  <div class="form-group">
+    <p>
+    <%= f.label :id %>
+    <%= f.text_field :id, class: "form-control" %>
+    <%= f.collection_select :id, Category.all, :id, :name, include_blank: true, class: "custom-select custom-select-lg mb-3" %>
+    </p>
+
+  <p>
+  <%= form_with model: @article, local: true do |form| %>
+            <% if @article.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+                this article from being saved:</h2>
+              <ul>
+              <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+            <% end %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </p>
+ 
+  <p>
+    <%= form.label :text %>
+    <%= form.rich_text_area :text ,class: "form-control"%>
+  </p>
+
+  <p>
+    <%= form.label :aurl %>
+    <%= form.text_area :aurl ,class: "form-control" %>
+  </p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<% end %>

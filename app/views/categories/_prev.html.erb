@@ -1,0 +1,13 @@
+<% @categories.each do |category| %>
+<p>♪ cate _ _ _ _ _ _ _ _ _ </p>
+
+<p>
+[id:<%= category.id %>]
+  <strong>category:</strong>
+  <%= category.name %>
+</p>
+
+  <%= link_to '', edit_category_path(category),class: "far fa-edit" %>
+  <%= button_to category_path(category),class: "button", method: :delete do %><i class="fas fa-trash"></i><% end %>
+
+<% end %>

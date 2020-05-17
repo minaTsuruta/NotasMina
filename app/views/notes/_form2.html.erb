@@ -1,0 +1,28 @@
+削除予定
+<p>▶︎_form_ _ _ _ _ </p>
+<h3>edit</h3>
+<%= form_with model:[@article, @comment, @note], local: true do |form| %>
+  <p>
+    <%= form.label :note %>
+    <%= form.text_field :note %>
+  </p>
+  <p>
+    <%= form.label :detail %>
+    <%= form.rich_text_area :detail %>
+  </p>
+  <p>
+    <%= form.label :nurl %>
+    <%= form.text_field :note:nurl %>
+  </p>
+  <p>
+    <%= form.label :status %>
+    <%= form.text_field :note :status %>
+  </p>
+  <p>
+    <%= form.label :report %>
+    <%= form.text_area :report %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

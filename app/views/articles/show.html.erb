@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-sm-8 p-3">
+        <%= render "prev" %>
+    </div>
+    <div class="col-sm-4">
+        <%= render "comments/list" %>
+    </div>
+</div>
+
+<%= render "comments/comment" %>
+<%= render "comments/form" %>
+
+<%# <%= link_to ' Back', articles_path,class: "btn btn-outline-secondary fas fa-arrow" %> 
+<%= button_to article_path(@article),class: "mt-5 btn btn-outline-secondary ", method: :delete do %><i class="fas fa-trash"> Destroy</i><% end %>
+

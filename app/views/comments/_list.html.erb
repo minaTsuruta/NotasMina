@@ -1,0 +1,14 @@
+<div class="mt-3 mb-3 rounded bg-white mfont">
+  <hr>
+    <p class="mfont pl-5"><strong><%= @article.title %></strong></p>
+    <hr>
+    <% @article.comments.each do |comment| %>
+      <p class="mfont pl-5"><%= comment.commenter %></p>
+        <% @article.notes.each do |note| %>
+          <% if comment.id == note.comment_id %>
+            <span class="mfont pl-5"><%= note.status %></span>
+          <% end %>
+        <% end %>
+      <hr>
+    <% end %>
+</div>

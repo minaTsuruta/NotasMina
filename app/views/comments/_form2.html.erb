@@ -1,0 +1,30 @@
+<h1>Edit Comment</h1>
+<%= form_with model: [@article, @comment] , local: true do |form| %>
+            <% if @article.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+                this article from being saved:</h2>
+              <ul>
+              <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+            <% end %>
+  <p>
+    <%= form.label :commenter %>
+    <%= form.text_field :commenter, class: "form-control" %>
+  </p>
+ 
+  <p>
+    <%= form.label :body %>
+    <%= form.rich_text_area :body %>
+  </p>
+   <p>
+    <%= form.label :curl %>
+    <%= form.text_field :curl, class: "form-control" %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

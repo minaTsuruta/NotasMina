@@ -1,0 +1,75 @@
+@import 'colors';
+
+/* Positioning */
+
+.puru{
+    // animation: divpurupuru-animation 10s infinite ease;
+    // border-radius: 100% 80% 100% 90%/100% 90% 100% 100%;
+}
+
+.maru {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  z-index: -1;
+}
+.maru2{
+    position: absolute;
+    
+    div {
+        position: absolute;
+        // mix-blend-mode: multiply;
+    }
+}
+
+/* Circles */
+.circle-1 {
+    width: 800px;
+    height: 850px;
+    translate:(-50%, -50%);
+    // background: radial-gradient(#cec4da,rgba(255, 255, 255, 0));
+    background:#cec4da;
+  border-radius: 90% 100% 90% 100%/90% 100% 100% 80%;
+  animation: border-animation 60s infinite ease;
+}
+.circle-2 {
+    width: 800px;
+    height: 830px;
+    translate:(-50%, -50%);
+    // background: radial-gradient(#cec4da,rgba(255, 255, 255, 0));
+    background:#cec4da;
+  border-radius: 80% 90% 100% 100%/90% 100% 90% 100%;
+  animation: border-animation 90s infinite ease;
+  
+}
+.circle-3 {
+    width: 850px;
+    height: 800px;
+    translate:(-50%, -50%);
+  // background: radial-gradient(#cec4da,rgba(255, 255, 255, 0));
+  background:#cec4da;
+  border-radius: 100% 100% 100% 80%/100% 90% 100% 100%;
+  animation: border-animation 40s infinite ease;
+}
+.circle-3 {
+    width: 870px;
+    height: 870px;
+    translate:(-50%, -50%);
+    // background: radial-gradient(#cec4da,rgba(255, 255, 255, 0));
+    background:#cec4da;
+  border-radius: 100% 80% 100% 90%/100% 90% 100% 100%;
+  animation: border-animation 66s infinite liner;
+}
+
+/* Animation */
+@keyframes border-animation {
+    0% {transform:scale(0.5)rotate(0deg);}
+    50% {transform:scale(0.6)rotate(360deg);}
+    100% {transform:scale(0.5)rotate(0deg);}
+}
+
+@keyframes divpurupuru-animation{
+    0% {transform:scale(1);}
+    50% {transform:scale(2);}
+    100% {transform:scale(1);}
+}

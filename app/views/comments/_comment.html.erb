@@ -1,0 +1,51 @@
+<% @article.comments.each do |comment| %>
+  <div class="row ">
+    <div class="col-sm-8 p-3">
+
+        <div class="row p-2 mb-3 shadow-sm bg-white rounded border">
+          <div class="col-sm-8 p-3">
+            <%= comment.commenter %>
+          </div>
+          <div class="col-sm-4 p-3 right">
+            <%= link_to '', edit_article_comment_path(comment.article, comment),class: "btn btn-outline-secondary far fa-edit" %>
+            <%= button_to '×', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-outline-secondary"  %>
+            <%= link_to ' Issue', new_article_comment_note_path(comment.article, comment),class: "btn btn-outline-secondary fas fa-question-circle" %>
+          </div>
+        </div>
+
+      <span class="mfont"><%= comment.body %></span>
+      <p class="mfont right mt-5 font-weight-lighter">source:<a href="<%= comment.curl%>"><%= comment.curl%></a> : update:<%= comment.updated_at %></p>
+      
+    </div>
+
+    <div class="col-sm-4 pt-2 puru">      
+      <% @article.notes.each do |note| %>
+        <% if comment.id == note.comment_id %>
+        
+        <div class="card mt-2 shadow-sm mfont" style="width: 100%;">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-7">
+                <h5 class="card-title mfont"><div class="rounded-circle status">　</div><%= note.note %></h5>
+              </div>
+              <div class="col-md-5 right">
+                <a href="#" class="card-link"><%= link_to '', edit_article_comment_note_path(comment.article, comment, note),class: "btn btn-outline-secondary far fa-edit" %></a>
+                <a href="#" class="card-link"><%= button_to '×', [comment.article, comment, note], method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-outline-secondary" %></a>
+              </div>
+            </div>
+
+            <p class="list-text"><%= note.detail %></p>
+            <hr>
+            <p class="list-text"><%= note.report %></p>
+            <% if @article.aurl %>
+              a<p class="mfont right mt-5 font-weight-lighter"><a href="<%= @article.aurl %>"><%= @article.aurl %></a></p>
+            <% end %>
+            </div>
+        </div>
+
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<header>
+<div class="header row">
+
+    <div class="title col-4">
+        <a href="/articles" class="fas fa-feather"><p> NotasMina <p class="p">paraEstudio:Rails</p></p></a>
+    </div>
+
+    <div class="menu col-8">
+        <% if @categolies.present? %>
+            <% @categolies.each_with_index do |m,i| %>
+                <% if i = 0 %>
+                <%i = 1%>
+                <%end%>
+                    <div class="dropdown">
+                        <%= link_to(article_path(@articles), class: "btn btn-light dropdown-toggle", role: "button", "aria-expanded": "false", id: "dropdownMenuLink", "data-toggle": "dropdown",  "aria-haspopup": "true",  "aria-expanded": "false"
+                        ) do %>
+                            <%= m.name %>
+                            <span class="badge bg0 wcolor">
+                            <%= m.articles.length%>
+                            </span>
+                        <% end %>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <% @articles.each do |n| %>
+                                <% if n.category_id == m.id %>
+                                <%= link_to n.title, article_path(n),class: "dropdown-item" %>     
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                <% break if i== @category %>
+                <% end %>
+            <% else %>
+        <% end %>
+
+        <div class="add">
+        <a href="/categories/new" class="fas fa-plus"><p class="dfont">ADD</p></a>
+        </div>
+    </div>
+</div>
+</header>
+

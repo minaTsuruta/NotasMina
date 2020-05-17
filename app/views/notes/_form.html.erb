@@ -1,0 +1,39 @@
+<h1>Create Edit Note</h1>
+<%= form_with(model:[@article, @comment, @note], local: true) do |form| %>
+          <% if @note.errors.any? || @comment.errors.any? || @article.errors.any?  %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@note.errors.count, "error") %> prohibited
+                this article from being saved:</h2>
+              <ul>
+              <% @note.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+  <p>
+    <%= form.label :note %>
+    <%= form.text_field :note , class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :detail %>
+    <%= form.rich_text_area :detail %>
+  </p>
+  <p>
+    <%= form.label :nurl %>
+    <%= form.text_field :nurl , class: "form-control" %>
+  </p>
+  <p>
+    <%= form.label :status %>
+    <%# <%= form.text_field :status , class: "form-control" %> 
+    <%= form.collection_select :status, Note.all, :id, :status, include_blank: true, class: "custom-select custom-select-lg mb-3" %>
+    <span class="mfont ml-3">0:danger 1:warning 2:sucsess</span>
+  </p>
+  <p>
+    <%= form.label :report %>
+    <%= form.rich_text_area :report %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

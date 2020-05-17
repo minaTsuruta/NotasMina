@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-8">
+    <table class="table mt-3">
+      <tr>
+      <thead class="bg0 wcolor center">
+          <th scope="col" class="dfont">Title</th>
+          <th scope="col" class="dfont white">Category</th>
+          <th scope="col" class="dfont">Show</th>
+          <th scope="col" class="dfont">Edit</th>
+          <th scope="col" class="dfont">Delete</th>
+        </tr>
+      </thead>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, article_path(article),class: 'btn btn-outline-secondary ' %></td>
+          <td class="center">[<%= article.category.name %>]</td>
+      
+          <td class="center"><%= link_to '', article_path(article),class: 'btn btn-outline-secondary far fa-eye' %></td>
+          <td class="center"><%= link_to '', edit_article_path(article),class: "btn btn-outline-secondary far fa-edit" %></td>
+          <td class="center"><%= button_to article_path(article),class: "btn btn-outline-secondary button", method: :delete do %>
+                <i class="fas fa-trash"></i><% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= link_to '＋', new_article_path %>
+    <h1>Create article</h1>
+    <%= render 'form2' %>
+  </div>
+
+  <div class="col-md-4">
+      <div class="bg1"style="height:300px;">
+        <a class="twitter-timeline" href="https://twitter.com/Vitamin_a29?ref_src=twsrc%5Etfw">Tweets by Vitamin_a29</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+  </div>
+</div>
+

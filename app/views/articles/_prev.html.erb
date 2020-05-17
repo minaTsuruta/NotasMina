@@ -1,0 +1,14 @@
+<div>
+  <div class="row p-3 mb-3 shadow-sm bg-white rounded border">
+      <div class="col-sm-10 pt-5 pb-5">
+        <%= @article.title %>
+      </div>
+      <div class="col-sm-2 pt-5 pb-5 right">
+        <%= link_to "", edit_article_path(@article),class: "btn btn-outline-secondary far fa-edit" %>
+      </div>
+  </div>
+      
+
+  <span class="mfont"><%= @article.text %></span>
+<p class="mfont right mt-5 font-weight-lighter">source:<a href="<%= @article.aurl %>"><%= @article.aurl %></a> : update:<%= @article.updated_at %></p>
+</div>
